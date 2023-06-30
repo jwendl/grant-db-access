@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrantDatabase.CommandLine", "GrantDatabase.CommandLine\GrantDatabase.CommandLine.csproj", "{33052135-960D-4A43-836E-A80542791D61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrantDatabase.CommandLine", "GrantDatabase.CommandLine\GrantDatabase.CommandLine.csproj", "{33052135-960D-4A43-836E-A80542791D61}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spectre.Console.Extensions.Logging", "Spectre.Console.Extensions.Logging\Spectre.Console.Extensions.Logging.csproj", "{3822D30A-B72C-4C52-B8B3-69CEB6B14CCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{33052135-960D-4A43-836E-A80542791D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33052135-960D-4A43-836E-A80542791D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33052135-960D-4A43-836E-A80542791D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3822D30A-B72C-4C52-B8B3-69CEB6B14CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3822D30A-B72C-4C52-B8B3-69CEB6B14CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3822D30A-B72C-4C52-B8B3-69CEB6B14CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3822D30A-B72C-4C52-B8B3-69CEB6B14CCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

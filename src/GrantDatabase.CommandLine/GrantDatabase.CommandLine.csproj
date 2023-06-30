@@ -14,7 +14,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.47.0" />
     <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.1.0" />
-    <PackageReference Include="Spectre.Console.Extensions.Logging" Version="0.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Spectre.Console.Extensions.Logging\Spectre.Console.Extensions.Logging.csproj" />
   </ItemGroup>
 
 </Project>

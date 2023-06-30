@@ -2,7 +2,7 @@
   "profiles": {
     "GrantDatabase.CommandLine": {
       "commandName": "Project",
-      "commandLineArgs": "user"
+      "commandLineArgs": "user 1234 1234 1234"
     }
   }
 }
