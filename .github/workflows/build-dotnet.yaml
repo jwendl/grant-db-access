@@ -30,7 +30,7 @@ jobs:
       - name: Publish
         run: dotnet publish -c Release -r ubuntu.22.04-x64 -p:PublishSingleFile=true --self-contained true
       - name: Create tar gzip package
-        working-directory: bin/Release/net7.0/ubuntu.22.04-x64/publish/
+        working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
         run: |
           tar --create --gzip --file dbcmd.tar.gz dbcmd
       - name: Create release
