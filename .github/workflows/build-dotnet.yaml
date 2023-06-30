@@ -30,7 +30,7 @@ jobs:
       - name: Publish
         run: dotnet publish -c Release -r ubuntu.22.04-x64 -p:PublishSingleFile=true --self-contained true
       - name: Create tar gzip package
-        uses: a7ul/tar-action@v1.1.0
+        uses: a7ul/tar-action@v1.1.3
         id: compress
         with:
           command: c
@@ -39,7 +39,7 @@ jobs:
             ./dbcmd
           outPath: dbcmd.tar.gz
       - name: Create release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.12.0
         with:
           artifacts: ./dbcmd.tar.gz
           body: Latest Release
