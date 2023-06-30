@@ -43,3 +43,4 @@ jobs:
         with:
           artifacts: ./dbcmd.tar.gz
           body: Latest Release
+          tag: v1
