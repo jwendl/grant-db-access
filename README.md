@@ -9,3 +9,5 @@ This repository is an attempt to fix that.
 *Solution*:
 
 Essentially, SQLCMD and GO-SQLCMD have odd implementations of Managed Identity that does not work with deployment scripts. Because of this, we decided to write a simple command line that would run on deployment scripts to do things like grant a managed identity access to a SQL Azure database.
+
+[![Build release command line](https://github.com/jwendl/grant-db-access/actions/workflows/build-dotnet.yaml/badge.svg)](https://github.com/jwendl/grant-db-access/actions/workflows/build-dotnet.yaml)
