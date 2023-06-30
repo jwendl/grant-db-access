@@ -34,13 +34,15 @@ jobs:
         id: compress
         with:
           command: c
-          cwd: ./src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
+          cwd: bin/Release/net7.0/ubuntu.22.04-x64/publish/
           files: |
             ./dbcmd
           outPath: dbcmd.tar.gz
+      - name: Debug
+        run: ls bin/Release/net7.0/ubuntu.22.04-x64/publish/
       - name: Create release
         uses: ncipollo/release-action@v1.12.0
         with:
-          artifacts: ./src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/dbcmd.tar.gz
+          artifacts: bin/Release/net7.0/ubuntu.22.04-x64/publish/dbcmd.tar.gz
           body: Latest Release
           tag: v1
