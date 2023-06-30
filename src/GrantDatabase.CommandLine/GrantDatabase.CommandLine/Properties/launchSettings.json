@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GrantDatabase.CommandLine": {
+      "commandName": "Project",
+      "commandLineArgs": "user"
+    }
+  }
+}
