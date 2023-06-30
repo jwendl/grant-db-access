@@ -39,7 +39,9 @@ jobs:
             ./dbcmd
           outPath: dbcmd.tar.gz
       - name: Debug
-        run: ls bin/Release/net7.0/ubuntu.22.04-x64/publish/
+        run: |
+          ls bin/Release/net7.0/ubuntu.22.04-x64/publish/
+          ls .
       - name: Create release
         uses: ncipollo/release-action@v1.12.0
         with:
