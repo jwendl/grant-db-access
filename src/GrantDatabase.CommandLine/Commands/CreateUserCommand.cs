@@ -15,7 +15,15 @@ namespace GrantDatabase.CommandLine.Commands
             var tokenRequestContext = new TokenRequestContext(new[] { "https://database.windows.net/.default" });
             var accessToken = await defaultAzureCredential.GetTokenAsync(tokenRequestContext);
 
-            using var sqlConnection = new SqlConnection();
+            var connectionStringBuilder = new SqlConnectionStringBuilder
+            {
+                Authentication = SqlAuthenticationMethod.ActiveDirectoryManagedIdentity,
+                DataSource = settings.SqlDatabaseName,
+                InitialCatalog = settings.SqlDatabaseName,
+                Encrypt = true
+            };
+
+            using var sqlConnection = new SqlConnection(connectionStringBuilder.ConnectionString);
             sqlConnection.AccessToken = accessToken.Token;
 
             using var sqlCommand = sqlConnection.CreateCommand();
