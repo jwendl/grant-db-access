@@ -13,11 +13,6 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Spectre.Console.Cli" Version="0.47.0" />
-    <PackageReference Include="Spectre.Console.Cli.Extensions.DependencyInjection" Version="0.1.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Spectre.Console.Extensions.Logging\Spectre.Console.Extensions.Logging.csproj" />
   </ItemGroup>
 
 </Project>

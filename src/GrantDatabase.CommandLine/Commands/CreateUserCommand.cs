@@ -2,7 +2,6 @@
 using Azure.Identity;
 using GrantDatabase.CommandLine.Commands.Settings;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Logging;
 using Spectre.Console.Cli;
 
 namespace GrantDatabase.CommandLine.Commands
@@ -10,16 +9,9 @@ namespace GrantDatabase.CommandLine.Commands
     public class CreateUserCommand
         : AsyncCommand<CreateUserSettings>
     {
-        private readonly ILogger<CreateUserCommand> _logger;
-
-        public CreateUserCommand(ILogger<CreateUserCommand> logger)
-        {
-            _logger = logger;
-        }
-
         public override async Task<int> ExecuteAsync(CommandContext context, CreateUserSettings settings)
         {
-            _logger.LogInformation("Running user command for {user}", settings.ManagedIdentityName);
+            Console.WriteLine("Running user command for {0}", settings.ManagedIdentityName);
 
             var defaultAzureCredential = new DefaultAzureCredential();
             var tokenRequestContext = new TokenRequestContext(new[] { "https://database.windows.net/.default" });

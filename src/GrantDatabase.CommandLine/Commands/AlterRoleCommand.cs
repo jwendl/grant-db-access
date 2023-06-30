@@ -2,7 +2,6 @@
 using Azure.Identity;
 using GrantDatabase.CommandLine.Commands.Settings;
 using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Logging;
 using Spectre.Console.Cli;
 
 namespace GrantDatabase.CommandLine.Commands
@@ -10,16 +9,9 @@ namespace GrantDatabase.CommandLine.Commands
     public class AlterRoleCommand
         : AsyncCommand<AlterRoleSettings>
     {
-        private readonly ILogger<AlterRoleCommand> _logger;
-
-        public AlterRoleCommand(ILogger<AlterRoleCommand> logger)
-        {
-            _logger = logger;
-        }
-
         public override async Task<int> ExecuteAsync(CommandContext context, AlterRoleSettings settings)
         {
-            _logger.LogInformation("Running role command for {user} being added to {role}", settings.ManagedIdentityName, settings.RoleName);
+            Console.WriteLine("Running role command for {0} being added to {1}", settings.ManagedIdentityName, settings.RoleName);
 
             var defaultAzureCredential = new DefaultAzureCredential();
             var tokenRequestContext = new TokenRequestContext(new[] { "https://database.windows.net/.default" });
