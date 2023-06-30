@@ -29,3 +29,17 @@ jobs:
         run: dotnet build
       - name: Publish
         run: dotnet publish -c Release -r ubuntu.22.04-x64 -p:PublishSingleFile=true --self-contained true
+      - name: Build tar gzip
+        uses: a7ul/tar-action@v1.1.0
+        id: compress
+        with:
+          command: c
+          cwd: ./bin/Release/net7.0/ubuntu.22.04-x64/publish/
+          files: |
+            ./dbcmd
+          outPath: $GITHUB_WORKSPACE/dbcmd.tar.gz
+      - Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: ./dbcmd.tar.gz
+          body: Latest Release
