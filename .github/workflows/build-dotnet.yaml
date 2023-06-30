@@ -38,7 +38,7 @@ jobs:
           files: |
             ./dbcmd
           outPath: $GITHUB_WORKSPACE/dbcmd.tar.gz
-      - Create release
+      - name: Create release
         uses: ncipollo/release-action@v1
         with:
           artifacts: ./dbcmd.tar.gz
