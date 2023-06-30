@@ -33,9 +33,9 @@ jobs:
         working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
         run: |
           tar --create --gzip --file dbcmd.tar.gz dbcmd
-      - name: Create release
-        uses: ncipollo/release-action@v1.12.0
-        with:
-          artifacts: src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/dbcmd.tar.gz
-          body: Latest Release
-          tag: v1
+      - name: Debug
+        run: |
+          ls src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
+          ls
+          pwd
+          
