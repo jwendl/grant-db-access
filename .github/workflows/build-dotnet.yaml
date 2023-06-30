@@ -34,7 +34,7 @@ jobs:
         id: compress
         with:
           command: c
-          cwd: bin/Release/net7.0/ubuntu.22.04-x64/publish/
+          cwd: src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
           files: |
             ./dbcmd
           outPath: dbcmd.tar.gz
