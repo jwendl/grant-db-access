@@ -33,22 +33,8 @@ jobs:
         working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
         run: |
           tar --create --gzip --file dbcmd.tar.gz dbcmd
-      - name: Debug
-        run: |
-          ls bin/Release/net7.0/ubuntu.22.04-x64/publish/
-          ls
-          pwd
-      - name: Creates release
-        uses: actions/create-release@v1
+      - name: Create release
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Main Release
-      - name: Uploads release asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./
-          asset_name: 
-          asset_content_type: application/gzip
+          files: |
+            bin/Release/net7.0/ubuntu.22.04-x64/publish/dbcmd.tar.gz
