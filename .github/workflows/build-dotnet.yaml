@@ -1,13 +1,29 @@
-steps:
-- uses: actions/checkout@v3
-- name: Setup dotnet
-  uses: actions/setup-dotnet@v3
-  with:
-    dotnet-version: '7.0.x'
-- name: Install dependencies
-  run: dotnet restore
-- name: Build
-  run: dotnet build
-- name: Publish
-  shell: pwsh
-  run: .\publish.ps1
+name: Build release command line
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  check-links:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+      - name: Install dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build
+      - name: Publish
+        shell: pwsh
+        run: .\publish.ps1
