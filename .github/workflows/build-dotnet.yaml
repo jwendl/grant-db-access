@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: dotnet build
       - name: Publish
-        run: dotnet publish -c Release -r ubuntu.22.04-x64 -p:PublishSingleFile=true --self-contained true
+        run: dotnet publish -c Release -r linux-amd64 -p:PublishSingleFile=true --self-contained true
       - name: Create tar gzip package
         working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/ubuntu.22.04-x64/publish/
         run: |
