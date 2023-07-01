@@ -2,7 +2,7 @@
   "profiles": {
     "GrantDatabase.CommandLine": {
       "commandName": "Project",
-      "commandLineArgs": "user"
+      "commandLineArgs": "user sql-jwstl-local-westus3.database.windows.net SentinelDB umi-jwstl-local-westus3"
     }
   }
 }
