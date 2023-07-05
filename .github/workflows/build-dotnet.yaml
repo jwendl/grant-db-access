@@ -31,9 +31,9 @@ jobs:
       - name: Build
         run: dotnet build
       - name: Publish
-        run: dotnet publish -c Release -r linux-amd64 -p:PublishSingleFile=true --self-contained true
+        run: dotnet publish -c Release -r alpine -p:PublishSingleFile=true --self-contained true
       - name: Create tar gzip package
-        working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/linux-x64/publish/
+        working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/alpine/publish/
         run: |
           tar --create --gzip --file dbcmd.tar.gz dbcmd
       - name: Create release
@@ -41,4 +41,4 @@ jobs:
         with:
           tag_name: v1.0
           files: |
-            src/GrantDatabase.CommandLine/bin/Release/net7.0/linux-x64/publish/dbcmd.tar.gz
+            src/GrantDatabase.CommandLine/bin/Release/net7.0/alpine/publish/dbcmd.tar.gz
