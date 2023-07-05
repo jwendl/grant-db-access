@@ -31,7 +31,7 @@ jobs:
       - name: Build
         run: dotnet build
       - name: Publish
-        run: dotnet publish -c Release -r alpine -p:PublishSingleFile=true --self-contained true
+        run: dotnet publish -c Release -r linux-musl-x64 -p:PublishSingleFile=true --self-contained true
       - name: Create tar gzip package
         working-directory: src/GrantDatabase.CommandLine/bin/Release/net7.0/alpine/publish/
         run: |
