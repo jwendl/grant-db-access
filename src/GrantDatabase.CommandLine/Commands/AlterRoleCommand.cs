@@ -13,7 +13,12 @@ namespace GrantDatabase.CommandLine.Commands
         {
             Console.WriteLine("Running role command for {0} being added to {1}", settings.ManagedIdentityName, settings.RoleName);
 
-            var defaultAzureCredential = new DefaultAzureCredential();
+            var defaultAzureCredentialOptions = new DefaultAzureCredentialOptions
+            {
+                ManagedIdentityClientId = settings.SqlAdminManagedIdentityObjectId,
+            };
+
+            var defaultAzureCredential = new DefaultAzureCredential(defaultAzureCredentialOptions);
             var tokenRequestContext = new TokenRequestContext(new[] { "https://database.windows.net/.default" });
             var accessToken = await defaultAzureCredential.GetTokenAsync(tokenRequestContext);
 
