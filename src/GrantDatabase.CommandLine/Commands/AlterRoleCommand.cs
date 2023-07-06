@@ -15,7 +15,7 @@ namespace GrantDatabase.CommandLine.Commands
 
             var defaultAzureCredentialOptions = new DefaultAzureCredentialOptions
             {
-                ManagedIdentityClientId = settings.SqlAdminManagedIdentityObjectId,
+                ManagedIdentityClientId = settings.SqlAdminManagedIdentityClientId,
             };
 
             var defaultAzureCredential = new DefaultAzureCredential(defaultAzureCredentialOptions);
