@@ -19,7 +19,7 @@ namespace GrantDatabase.CommandLine.Commands
 
             var connectionStringBuilder = new SqlConnectionStringBuilder
             {
-                DataSource = settings.SqlDatabaseName,
+                DataSource = settings.SqlServerHostName,
                 InitialCatalog = settings.SqlDatabaseName,
                 Encrypt = true
             };
