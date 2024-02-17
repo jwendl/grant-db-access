@@ -3,6 +3,7 @@ using Azure.Identity;
 using GrantDatabase.CommandLine.Commands.Settings;
 using Microsoft.Data.SqlClient;
 using Spectre.Console.Cli;
+using System.Text;
 
 namespace GrantDatabase.CommandLine.Commands
 {
@@ -34,7 +35,17 @@ namespace GrantDatabase.CommandLine.Commands
             await sqlConnection.OpenAsync();
 
             using var sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = $"ALTER ROLE {settings.RoleName} ADD MEMBER [{settings.ManagedIdentityName}];";
+
+            var command = new StringBuilder();
+
+            if (settings.CreateIfNotExists)
+            {
+                command.AppendLine($"IF DATABASE_PRINCIPAL_ID('{settings.RoleName}') IS NULL CREATE ROLE [{settings.RoleName}]");
+            }
+
+            command.AppendLine($"ALTER ROLE {settings.RoleName} ADD MEMBER [{settings.ManagedIdentityName}];");
+
+            sqlCommand.CommandText = command.ToString();
 
             await sqlCommand.ExecuteNonQueryAsync();
             return 0;
