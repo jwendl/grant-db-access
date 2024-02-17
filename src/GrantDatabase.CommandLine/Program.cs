@@ -13,6 +13,10 @@ commandApplication.Configure(config =>
     config.AddCommand<AlterRoleCommand>("role")
         .WithDescription("Alters a role for a given user")
         .WithExample(new[] { "role" });
+
+	config.AddCommand<GrantPermissionCommand>("grant")
+	    .WithDescription("Grants a permission for a given principal")
+	    .WithExample(new[] { "grant" });
 });
 
 await commandApplication.RunAsync(args);
