@@ -1,4 +1,5 @@
 ﻿using Spectre.Console.Cli;
+using System.ComponentModel;
 
 namespace GrantDatabase.CommandLine.Commands.Settings
 {
@@ -10,5 +11,9 @@ namespace GrantDatabase.CommandLine.Commands.Settings
 
         [CommandArgument(4, "<Role Name>")]
         public string RoleName { get; set; } = string.Empty;
-    }
+
+		[CommandOption("--create")]
+		[DefaultValue(false)]
+		public bool CreateIfNotExists { get; set; }
+	}
 }
